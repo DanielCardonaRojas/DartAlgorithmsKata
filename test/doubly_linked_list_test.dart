@@ -36,6 +36,7 @@ void main() {
     ll.append(4);
     ll.insert(3, at: 2);
 
+    expect(ll.collect(), [1, 2, 3, 4]);
     assert(ll.itemAt(2) == 3);
     assert(ll.itemAt(3) == 4);
     assert(ll.length == 4);
