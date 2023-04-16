@@ -24,14 +24,20 @@ class BinaryTree<T> {
     return [];
   }
 
-  _preOrderSearch(BinaryNode<T>? node, List<T> path) {
-  }
+  _preOrderSearch(BinaryNode<T>? node, List<T> path) {}
 
   _inOrderSearch(BinaryNode<T>? node, List<T> path) {
+    final current = node;
+    if (current == null) return path;
+
+    _inOrderSearch(current.left, path);
+    path.add(current.value);
+    _inOrderSearch(current.right, path);
+
+    return path;
   }
 
-  _postOrderSearch(BinaryNode<T>? node, List<T> path) {
-  }
+  _postOrderSearch(BinaryNode<T>? node, List<T> path) {}
 }
 
 class BinaryNode<T> {
