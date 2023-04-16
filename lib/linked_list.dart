@@ -1,5 +1,5 @@
 class LinkedList<T> {
-  LinkedListNode? root;
+  LinkedListNode<T>? root;
   int _length = 0;
 
   int get length => _length;
@@ -9,6 +9,8 @@ class LinkedList<T> {
   void prepend(T value) {}
 
   void delete(int index) {}
+  void insert(T value, int index) {
+  }
 
   T? itemAt(int index) {
     return null;

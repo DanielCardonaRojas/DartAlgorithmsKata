@@ -8,10 +8,11 @@ void main() {
     assert(ll.length == 1);
   });
 
-  test('prepend increases size', () {
+  test('append increases size', () {
     final ll = LinkedList<int>();
     ll.append(1);
     assert(ll.length == 1);
+    assert(ll.itemAt(0) == 1);
   });
 
   test('delete decreases size', () {
@@ -19,6 +20,18 @@ void main() {
     ll.append(1);
     ll.delete(0);
     assert(ll.length == 0);
+  });
+
+  test('insert at a given position', () {
+    final ll = LinkedList();
+    ll.append(1);
+    ll.append(2);
+    ll.append(4);
+    ll.insert(3, 2);
+
+    assert(ll.itemAt(2) == 3);
+    assert(ll.itemAt(3) == 4);
+    assert(ll.length == 4);
   });
 
   test('can read value at a particular index', () {
