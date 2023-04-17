@@ -1,6 +1,6 @@
 class BinaryTree<T> {
   BinaryNode<T>? root;
-  BinaryTree();
+  BinaryTree([this.root]);
 
   List<T> inOrderSearch() {
     List<T> path = [];
@@ -24,14 +24,11 @@ class BinaryTree<T> {
     return [];
   }
 
-  _preOrderSearch(BinaryNode<T>? node, List<T> path) {
-  }
+  _preOrderSearch(BinaryNode<T>? node, List<T> path) {}
 
-  _inOrderSearch(BinaryNode<T>? node, List<T> path) {
-  }
+  _inOrderSearch(BinaryNode<T>? node, List<T> path) {}
 
-  _postOrderSearch(BinaryNode<T>? node, List<T> path) {
-  }
+  _postOrderSearch(BinaryNode<T>? node, List<T> path) {}
 }
 
 class BinaryNode<T> {

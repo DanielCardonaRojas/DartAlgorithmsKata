@@ -10,16 +10,10 @@ class DoublyLinkedList<T> {
   void prepend(T value) {}
 
   void delete(int index) {}
-  void insert(T value, {required int at}) {
-  List<T> collect() {
-    var current = root;
-    var result = <T>[];
-    while (current != null) {
-      result.add(current.value);
-      current = current.next;
-    }
+  void insert(T value, {required int at}) {}
 
-    return result;
+  List<T> collect() {
+    return [];
   }
 
   T? itemAt(int index) {

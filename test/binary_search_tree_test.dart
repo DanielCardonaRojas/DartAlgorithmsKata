@@ -17,7 +17,7 @@ void main() {
     tree.insert(40);
     tree.insert(500);
 
-    final list = tree.inOrder();
+    final list = tree.inOrderSearch();
 
     expect(list, [40, 100, 500]);
   });
