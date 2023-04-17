@@ -32,7 +32,7 @@ class BinarySearchTree<T extends Comparable> extends BinaryTree<T> {
   }
 
   List<T> orderedItems() {
-    return [];
+    return inOrderSearch();
   }
 
   T? get max {

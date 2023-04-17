@@ -21,23 +21,49 @@ class BinaryTree<T> {
   }
 
   List<T> bfsSearch() {
-    return [];
-  }
+    if (root == null) return [];
+    List<T> path = [];
+    List<BinaryNode<T>> queue = [];
+    queue.add(root!);
 
-  _preOrderSearch(BinaryNode<T>? node, List<T> path) {}
+    while (queue.isNotEmpty) {
+      BinaryNode<T> curr = queue.removeAt(0);
+      path.add(curr.value);
+      final left = curr.left;
+      final right = curr.right;
 
-  _inOrderSearch(BinaryNode<T>? node, List<T> path) {
-    final current = node;
-    if (current == null) return path;
+      if (left != null) {
+        queue.add(left);
+      }
 
-    _inOrderSearch(current.left, path);
-    path.add(current.value);
-    _inOrderSearch(current.right, path);
+      if (right != null) {
+        queue.add(right);
+      }
+    }
 
     return path;
   }
 
-  _postOrderSearch(BinaryNode<T>? node, List<T> path) {}
+  _preOrderSearch(BinaryNode<T>? node, List<T> path) {
+    if (node == null) return;
+    path.add(node.value);
+    _preOrderSearch(node.left, path);
+    _preOrderSearch(node.right, path);
+  }
+
+  _inOrderSearch(BinaryNode<T>? node, List<T> path) {
+    if (node == null) return;
+    _inOrderSearch(node.left, path);
+    path.add(node.value);
+    _inOrderSearch(node.right, path);
+  }
+
+  _postOrderSearch(BinaryNode<T>? node, List<T> path) {
+    if (node == null) return;
+    _postOrderSearch(node.left, path);
+    _postOrderSearch(node.right, path);
+    path.add(node.value);
+  }
 }
 
 class BinaryNode<T> {

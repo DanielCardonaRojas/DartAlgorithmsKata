@@ -85,9 +85,7 @@ class DoublyLinkedList<T> {
       result.add(current.value);
       current = current.next;
     }
-
-  List<T> collect() {
-    return [];
+    return result;
   }
 
   T? itemAt(int index) {
