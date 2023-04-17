@@ -21,16 +21,47 @@ class BinaryTree<T> {
   }
 
   List<T> bfsSearch() {
-    return [];
+    List<T> path = [];
+    List<BinaryNode<T>> queue = [];
+    queue.add(root);
+
+    while (queue.isNotEmpty) {
+      BinaryNode<T> curr = queue.removeAt(0);
+      path.add(curr.value);
+      final left = curr.left;
+      final right = curr.right;
+
+      if (left != null) {
+        queue.add(left);
+      }
+
+      if (right != null) {
+        queue.add(right);
+      }
+    }
+
+    return path;
   }
 
   _preOrderSearch(BinaryNode<T>? node, List<T> path) {
+    if (node == null) return;
+    path.add(node.value);
+    _preOrderSearch(node.left, path);
+    _preOrderSearch(node.right, path);
   }
 
   _inOrderSearch(BinaryNode<T>? node, List<T> path) {
+    if (node == null) return;
+    _inOrderSearch(node.left, path);
+    path.add(node.value);
+    _inOrderSearch(node.right, path);
   }
 
   _postOrderSearch(BinaryNode<T>? node, List<T> path) {
+    if (node == null) return;
+    _postOrderSearch(node.left, path);
+    _postOrderSearch(node.right, path);
+    path.add(node.value);
   }
 }
 
