@@ -6,12 +6,12 @@ void _quickSort(List<int> array, int start, int end) {
   if (end <= start) {
     return;
   }
-  var pivotIndex = splitSort(array, start, end);
+  var pivotIndex = partition(array, start, end);
   _quickSort(array, start, pivotIndex - 1);
   _quickSort(array, pivotIndex, end);
 }
 
-int splitSort(List<int> array, int start, int pivotIndex) {
+int partition(List<int> array, int start, int pivotIndex) {
   final pivot = array[pivotIndex];
 
   for (var i = start; i <= pivotIndex; i++) {
